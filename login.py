@@ -26,10 +26,35 @@ password_input.send_keys(Keys.RETURN)
 # Tunggu halaman beranda dimuat (misalnya, dengan menunggu elemen tertentu muncul)
 # contoh, menunggu elemen dengan ID 'dashboard' muncul
 driver.implicitly_wait(10)
-dashboard_element = driver.find_element('id', 'user_menu')
+dashboard_element = driver.find_element(By.ID, 'user_menu')
 
-# Lakukan tindakan lain setelah login
-# ...
+if dashboard_element : 
+    print("success login...")
+    driver.get("https://app.jubelio.com/home/inventory")
+    
+     # Cari elemen berdasarkan teks "Penyesuaian Persediaan"
+    button_element = driver.find_element(By.XPATH, '//span[text()="Penyesuaian Persediaan"]')
+
+    # Klik tombol Penyesuaian Persediaan
+    button_element.click()
+
+     # Cari elemen input dengan placeholder "Scan"
+    input_element = driver.find_element(By.XPATH, '//input[@placeholder="Scan"]')
+
+    # Isi teks "IphoneGoldXS" ke dalam input
+    input_element.send_keys("IphoneGoldXS")
+
+      # Cari tombol "Scan"
+    scan_button = driver.find_element(By.XPATH, '//button[contains(@class, "ladda-button")]//span[text()="Scan"]')
+
+    # Klik tombol "Scan"
+    scan_button.click()
+
+    simpan_button = driver.find_element(By.XPATH, '//button[contains(@class, "ladda-button")]//span[text()="Simpan"]')
+
+    # Klik tombol "Simpan"
+    simpan_button.click()
+
 
 # Tutup browser
 driver.quit()
