@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-# Lokasi ChromeDriver
+# Lokasi ChromeDriver Di Lokall
 driver_path = 'C:/chromedriver/chromedriver.exe'
 
 # Inisialisasi Chrome WebDriver
@@ -20,11 +20,10 @@ email_input.send_keys('qa.rakamin.jubelio@gmail.com')
 password_input = driver.find_element(By.NAME, 'password')
 password_input.send_keys('Jubelio123!')
 
-# Submit formulir
+# Submit formulir Enter 
 password_input.send_keys(Keys.RETURN)
 
-# Tunggu halaman beranda dimuat (misalnya, dengan menunggu elemen tertentu muncul)
-# contoh, menunggu elemen dengan ID 'dashboard' muncul
+# Tunggu halaman beranda dimuat user menu
 driver.implicitly_wait(10)
 dashboard_element = driver.find_element(By.ID, 'user_menu')
 
